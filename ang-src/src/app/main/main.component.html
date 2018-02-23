@@ -1,0 +1,41 @@
+<div class="card">
+	<div class="card-header">
+		<h2>SQL Log Parser</h2>
+	</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="custom-file col-6">
+			  <input type="file" class="custom-file-input" id="customFile" (change)="FileDownl($event)">
+			  <label class="custom-file-label" for="customFile">Choose file</label>
+			</div>
+			<div class="ml-auto">
+				<!-- <button type="button" class="btn btn-primary ">Załaduj</button> -->
+				<button type="button" class="btn btn-primary " (click)="goParse()">Parsuj</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="card">
+	<ul class="list-group list-group-flush">
+		<li *ngFor="let item of myItems"  class="list-group-item list-group-item-action list-log-item" [class.selected]="item === selectedItem"  (click)="onSelectItem(item)">{{item}}</li>
+	</ul>
+</div>
+
+<br>
+
+<div class="card" [@seria] *ngIf="isModalVisible" id="modal">
+	<div id="modal-body">
+		<div class="card-header">
+			<h4>Wynik parsowania</h4>
+		</div>
+		<div class="card-body">
+			<p>{{currentDisp}}</p>
+			<div class="row justify-content-center">
+				<button type="button" class="btn btn-danger" (click)="modalVisible()">Zamknij</button>
+			</div>
+		</div>
+	</div>
+</div>
