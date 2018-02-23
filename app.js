@@ -24,21 +24,8 @@ app.post('/api', (req, res) => {
 	let item = req.body.item;
 
 	let odp = parseFile.parseFile(item);
-	//console.log(odp);
-  res.json(odp);
+	res.json(odp);
 });
-
-
-
-
-//tst
-app.post('/api/test', (req, res) => {
-	let item = req.body.item;
-
-  res.json(item);
-});
-
-
 
 
 app.get('*', (req,res) => {
